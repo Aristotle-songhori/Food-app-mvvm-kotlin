@@ -3,11 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-
+<!-- برای دست رسی به اینترنت-->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
+<!-- برای کتابخانه دستی یوتوب-->
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
+
+
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,6 +25,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodAppMvvm"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.detail.player.PlayerActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".ui.FoodsActivity"
             android:exported="true">
