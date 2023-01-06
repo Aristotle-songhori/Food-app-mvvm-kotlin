@@ -30,41 +30,75 @@ class FoodDetailFragment : Fragment() {
     //Binding
     private var _binding: FragmentFoodDetailBinding? = null
     private val binding get() = _binding
+    //اینم ویو مدلمون هست
+    private val viewModel: FoodDetailViewModel by viewModels()
 
+    //اتصال به اینترنت رو چک میکنه اگر تغییر کنه متوجه میشه
     @Inject
     lateinit var connection: CheckConnection
 
+    //دیتابیس رو اضافه کردیم
     @Inject
     lateinit var entity: FoodEntity
 
-    //Other
+    //این آرگومنتی که میرسه به این ویومدل
     private val args: FoodDetailFragmentArgs by navArgs()
+
     private var foodID = 0
-    private val viewModel: FoodDetailViewModel by viewModels()
+
     private var isFavorite = false
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentFoodDetailBinding.inflate(layoutInflater)
         return binding!!.root
     }
 
+
+    override fun onStop() {
+        super.onStop()
+        _binding = null
+    }
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         //InitViews
         binding?.apply {
-            //Get data
+
+
+            //Get data از آرگومنت میایم و آیدی رو میگیریم
             foodID = args.foodId
+
+
+
             //InitView
             binding?.apply {
-                //back
+
+
+                //backدکمه بک بالای صفحه و ست کردن کلیک برای برگشت نویگیشن
                 detailBack.setOnClickListener { findNavController().navigateUp() }
-                //Call api
+
+
+                //Call api میاد آیدی رو میفرسته تا بره از هاست داده ها رو بگیره و بعد با لایو دیتا اگر عوض شد کنترل کند
                 viewModel.loadFoodDetail(foodID)
+
+                //اینجا میاد کنترل میکنه اگر تغیر کرد
                 viewModel.foodDetailData.observe(viewLifecycleOwner) {
+
+                   // اگر استاتوس هر کدوم از این گزینه ها هست این کار ها رو انجام بده
                     when (it.status) {
+
+
+                        //اگر لودینگه این کار
                         MyResponse.Status.LOADING -> {
                             detailLoading.isVisible(true, detailContentLay)
                         }
+
+
+                        //اگر ساکسس هست بیا داده ها رو نمایش بده
                         MyResponse.Status.SUCCESS -> {
                             detailLoading.isVisible(false, detailContentLay)
                             //Set data
@@ -124,13 +158,30 @@ class FoodDetailFragment : Fragment() {
                                 }
                             }
                         }
+
+
+
+                        // اینم وقتی خطا میرسه
                         MyResponse.Status.ERROR -> {
                             detailLoading.isVisible(false, detailContentLay)
                             Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                         }
+
+
+
                     }
                 }
+
+
+
+
+
+
+
+
                 //Favorite
+                // این میاد میبینه اگر این آیدی خاص در دیتابیس هست و و ثبت شده یعنی باید در علاقه مندی باشه
+                //
                 viewModel.existsFood(foodID)
                 viewModel.isFavoriteData.observe(viewLifecycleOwner) {
                     isFavorite = it
@@ -140,6 +191,11 @@ class FoodDetailFragment : Fragment() {
                         detailFav.setColorFilter(ContextCompat.getColor(requireContext(), R.color.black))
                     }
                 }
+
+
+
+
+
                 //Save / Delete
                 detailFav.setOnClickListener {
                     if (isFavorite) {
@@ -147,8 +203,17 @@ class FoodDetailFragment : Fragment() {
                     } else
                         viewModel.saveFood(entity)
                 }
+
+
+
+
             }
+
+
+
+
             //Internet
+            //اینم که لحظه عوض شدن اینترنت رو چک میکنه
             connection.observe(viewLifecycleOwner) {
                 if (it) {
                     checkConnectionOrEmpty(false, FoodsListFragment.PageState.NONE)
@@ -156,15 +221,16 @@ class FoodDetailFragment : Fragment() {
                     checkConnectionOrEmpty(true, FoodsListFragment.PageState.NETWORK)
                 }
             }
+
+
+
+
         }
     }
 
-    override fun onStop() {
-        super.onStop()
-        _binding = null
-    }
 
-
+    //برای کنترل اینترنت ساخته شده توضیحات در بخش
+    //فرگمنت لیست هست
     private fun checkConnectionOrEmpty(isShownError: Boolean, state: FoodsListFragment.PageState) {
         binding?.apply {
             if (isShownError) {

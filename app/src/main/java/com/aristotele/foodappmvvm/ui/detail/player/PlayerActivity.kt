@@ -10,6 +10,12 @@ import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
 
+
+/**
+ * این برای کتابخونه اختصاصی یوتوبه که خیلی خاصه و باید
+ * api یوتوب رو بگیریم و داستان های خودشرو داره
+ * حتما ویدیو آموزشی رو ببینید اگر قراره یوتوب تو برنامتون نمایش بدید
+ */
 @Suppress("DEPRECATION")
 class PlayerActivity : YouTubeBaseActivity() {
     //Binding

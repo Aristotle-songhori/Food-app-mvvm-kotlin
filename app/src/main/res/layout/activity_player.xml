@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".food_app.ui.detail.player.PlayerActivity">
+    tools:context=".ui.detail.player.PlayerActivity">
 
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/videoPlayer"

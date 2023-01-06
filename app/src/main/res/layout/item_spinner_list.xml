@@ -3,7 +3,7 @@
     style="?android:attr/spinnerItemStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fontFamily="@font/almarai_light"
+    android:fontFamily="@font/aldrich"
     android:gravity="center"
     android:textColor="@color/charcoal"
     android:textSize="20sp" />

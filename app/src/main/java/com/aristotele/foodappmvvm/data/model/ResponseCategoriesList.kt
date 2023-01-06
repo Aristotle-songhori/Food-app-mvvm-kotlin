@@ -2,6 +2,11 @@ package com.aristotele.foodappmvvm.data.model
 
 import com.google.gson.annotations.SerializedName
 
+
+/**
+ * یه مدل از این آدرس هست که میاد لیست کتگوری غذاها رو میده بعلاوه لینک عکسشون و ...
+ * https://www.themealdb.com/api/json/v1/1/categories.php
+ */
 data class ResponseCategoriesList(
     @SerializedName("categories")
     val categories: List<Category>

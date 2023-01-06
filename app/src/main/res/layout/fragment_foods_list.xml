@@ -8,15 +8,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerLay"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="250dp"
         app:layout_constraintTop_toTopOf="parent">
-        <!--Img-->
+        <!--Img - از کتابخونه خاصی که عکس بزرگ و کوچک میکنه -->
         <com.flaviofaria.kenburnsview.KenBurnsView
             android:id="@+id/headerImg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop" />
-        <!--Cover-->
+        <!--Cover  یه لایه طوسی روی عکس که چشم بیننده رو اذیت نکنه-->
+        <!--       همونطور که میبینید یکمی آبی تیره هست-->
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -58,7 +59,7 @@
             android:drawableStart="@drawable/ic_round_search_24"
             android:drawablePadding="5dp"
             android:elevation="3dp"
-            android:fontFamily="@font/almarai_light"
+            android:fontFamily="@font/aldrich"
             android:hint="@string/search"
             android:maxLines="1"
             android:paddingHorizontal="10dp"
@@ -135,7 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
-                        android:fontFamily="@font/almarai_light"
+                        android:fontFamily="@font/aldrich"
                         android:text="@string/foods"
                         android:textColor="@color/black"
                         android:textSize="22sp"

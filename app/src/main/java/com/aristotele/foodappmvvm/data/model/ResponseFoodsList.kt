@@ -2,6 +2,13 @@ package com.aristotele.foodappmvvm.data.model
 
 import com.google.gson.annotations.SerializedName
 
+
+/**
+ * یا قمر بنی هاشم این چرا اینطوری ؟
+ * آهان !!!!
+ * این در واقع داده ای هست که تو جیسون رسیده یه لیست رسیده بعد توی اون لیست داده ها رسیدن
+ * برای همین اینطوری شده  و اسمش هم meals گذاشتیم  ویه دیتاکلاس میشه و داده ها رو ازش میگیریم
+ */
 data class ResponseFoodsList(
     @SerializedName("meals")
     val meals: List<Meal>?

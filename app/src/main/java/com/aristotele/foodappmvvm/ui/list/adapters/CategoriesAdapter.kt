@@ -12,10 +12,24 @@ import com.aristotele.foodappmvvm.data.model.ResponseCategoriesList
 import com.aristotele.foodappmvvm.databinding.ItemCategoriesBinding
 import javax.inject.Inject
 
-class CategoriesAdapter @Inject constructor() : RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
-
+/**
+ * همینطور که میبینیم اومدیم این کلاس رو وصل کردیم به هیلت با نوتیشن اینجکت کانسترکتور
+ * یعنی هر جا بخواهیم میتونیم تزریقش کنیم
+ * اگر روی اون علامت بقل سمت چپ کلیک کنید میبینید کجاها استفاده شده
+ *
+ * خوب این آدابتر برای اسکرول هست
+ * اسکرولی که میاد دسته بندی غذا ها رو نشون میده
+ */
+//
+class CategoriesAdapter @Inject constructor() :
+    RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
+//باندینگ و لایه رو تعریف کردیم
     private lateinit var binding: ItemCategoriesBinding
+
+    //یه لیست خالی درست میکنیم اینجا
     private var moviesList = emptyList<ResponseCategoriesList.Category>()
+
+    //اینم خودمون درست کردیم برای سلکت شدن آیتم ها
     private var selectedItem = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
