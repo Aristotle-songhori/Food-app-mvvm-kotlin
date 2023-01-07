@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/foodsListFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/foodsListFragment"
@@ -29,9 +29,25 @@
             android:name="foodId"
             app:argType="integer" />
     </fragment>
+
+
+    <action
+        android:id="@+id/actionTofoodsListFragment"
+        app:destination="@id/foodsListFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/splashFragment"
+        app:popUpToInclusive="true" />
     <fragment
         android:id="@+id/foodsFavoriteFragment"
         android:name="com.aristotele.foodappmvvm.ui.favorite.FoodsFavoriteFragment"
         android:label="FoodsFavoriteFragment"
         tools:layout="@layout/fragment_foods_favorite"/>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.aristotele.foodappmvvm.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" />
 </navigation>

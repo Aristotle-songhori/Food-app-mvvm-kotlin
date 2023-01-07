@@ -49,7 +49,7 @@ class FoodsActivity : AppCompatActivity() {
         //روش خاموش کردن نوهاست برای اسپلش و برای هر صفحه دیگه ای که لازم دیده نشه
         //Hide bottom nav میگیم وقتی میری توی دیتیل این بخش رو هیدن کن تا دیده نشه و زیبا تر باشه
         navHost.navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.foodDetailFragment) {
+            if (destination.id == R.id.splashFragment || destination.id == R.id.foodDetailFragment) {
                 binding.bottomNav.visibility = View.GONE
             } else {
                 binding.bottomNav.visibility = View.VISIBLE

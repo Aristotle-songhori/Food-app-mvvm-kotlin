@@ -1,0 +1,8 @@
+
+9kotlin:S1128"Remove this unused import.(æÇÁ 8÷¿ˆ¤×0
+:kotlin:S6310"Avoid hardcoded dispatchers.(Ğ…Ãe8‘òİ¢×0
+;kotlin:S6310"Avoid hardcoded dispatchers.(ÁåÓ¢8’òİ¢×0
+@kotlin:S6310"Avoid hardcoded dispatchers.(Ê¿Ÿ¾ùÿÿÿÿ8’òİ¢×0
+@kotlin:S6310""Avoid hardcoded dispatchers.(ÁœÈ½ÿÿÿÿÿ8’òİ¢×0
+pkotlin:S6311"QRemove this dispatcher. It is pointless when used with only suspending functions.(ÁåÓ¢8ú¿ˆ¤×0
+ukotlin:S6311"QRemove this dispatcher. It is pointless when used with only suspending functions.(Ê¿Ÿ¾ùÿÿÿÿ8ú¿ˆ¤×0
